@@ -12,23 +12,33 @@
             <!--Enter the license -->
             <h1>New License</h1>
             <form action="/" method="post">
-                <!--
-                <p>Id: <input type="text" th:field="*{id}" /></p>
-                <p>Message: <input type="text" th:field="*{content}" /></p>
-                -->
                 <div class="form-group">
                      <input type="text"class="form-control"  name="ipServer" id ="ipServer" placeholder="Ip server"/>
                 </div>
                 <div class="form-group">
                     <input type="number" class="form-control" name="numberOfMonths" placeholder="Number of months"/>
                 </div>
-                <p ><input type="submit" class="btn btn-primary" value="Submit" />
+                <p><input type="submit" class="btn btn-primary" value="Submit"/>
             </form>
         </div>
         <div class="col-lg-8 text-center">
             <h2>Show result</h2>
-
-            <p></p>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Server ip</th>
+                    <th>Generation date</th>
+                    <th>Expiry Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each = "availableLicense: ${availableLicenses}">
+                    <td th:text = "${availableLicense.serverIp}">1234</td>
+                    <td th:text = "${availableLicense.licenseGenerationDate}">2020-05-03</td>
+                    <td th:text = "${availableLicense.licenseExpiryDate}">2020-05-03</td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Controller
@@ -17,15 +19,19 @@ public class EncrypterController {
 
     @Autowired
     private LicenseService licenseService;
+
+    @Autowired
+    private LicenseSave licenseSave;
+
     @GetMapping("/")
     public String showAvailableLicenses(Model model){
-        model.addAttribute("availableLicense", new EncryptionModel());
+        List<EncryptionModel> encryptionModelList = new ArrayList<>();
+        model.addAttribute("availableLicenses", licenseSave.findAll());
         return "index";
     }
 
-
     @PostMapping("/")
-    public String saveLicense(HttpServletRequest request, Model model){
+    public String saveLicense(HttpServletRequest request, Model model) throws Exception {
         String ip = request.getParameter("ipServer");
         String numMonths = request.getParameter("numberOfMonths");
         if(licenseService.save(ip, numMonths)){
@@ -33,6 +39,8 @@ public class EncrypterController {
         }else{
             System.out.println("Not saved");
         }
+
+        model.addAttribute("availableLicenses", licenseSave.findAll());
 
         return "index";
     }
