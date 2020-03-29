@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" href="../static/css/bootstrap.min.css" type="text/css">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-4">
+            <!--Enter the license -->
+            <h1>Form</h1>
+            <form action="#" th:action="@{/}" th:object="${availableLicense}" method="post">
+                <!--
+                <p>Id: <input type="text" th:field="*{id}" /></p>
+                <p>Message: <input type="text" th:field="*{content}" /></p>
+                -->
+                <p>IP server: <input type="text" th:value="*{serverIp}" /></p>
+
+                <p><input type="submit" value="Submit" />
+            </form>
+        </div>
+        <div class="col-lg-8">
+            <h2>Show result</h2>
+
+            <p></p>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="../static/js/main.js"></script>
+</body>
+</html>
