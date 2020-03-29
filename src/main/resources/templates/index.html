@@ -1,27 +1,31 @@
 <!DOCTYPE HTML>
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Handling Form Submission</title>
+    <title>DTOne Licensing Solution</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" href="../static/css/bootstrap.min.css" type="text/css">
 </head>
 <body>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-4">
+        <div class="col-lg-4 text-center">
             <!--Enter the license -->
-            <h1>Form</h1>
-            <form action="#" th:action="@{/}" th:object="${availableLicense}" method="post">
+            <h1>New License</h1>
+            <form action="/" method="post">
                 <!--
                 <p>Id: <input type="text" th:field="*{id}" /></p>
                 <p>Message: <input type="text" th:field="*{content}" /></p>
                 -->
-                <p>IP server: <input type="text" th:value="*{serverIp}" /></p>
-
-                <p><input type="submit" value="Submit" />
+                <div class="form-group">
+                     <input type="text"class="form-control"  name="ipServer" id ="ipServer" placeholder="Ip server"/>
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" name="numberOfMonths" placeholder="Number of months"/>
+                </div>
+                <p ><input type="submit" class="btn btn-primary" value="Submit" />
             </form>
         </div>
-        <div class="col-lg-8">
+        <div class="col-lg-8 text-center">
             <h2>Show result</h2>
 
             <p></p>

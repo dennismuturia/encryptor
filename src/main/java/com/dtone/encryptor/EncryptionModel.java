@@ -16,7 +16,7 @@ public class EncryptionModel {
     private Long licenceId;
     private String licenseVal;
     private String serverIp;
-    private Date licenseGenerationDate;
-    private Date licenseExpiryDate;
+    private String licenseGenerationDate;
+    private String licenseExpiryDate;
     private String licenseLocation;
 }

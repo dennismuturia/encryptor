@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface LicenseSave extends CrudRepository<EncryptionModel, Long> {
     @Query(nativeQuery = true,
-            value = "select server_ip from encryption_model  where server_ip=:serverIp")
-    String existsServerIp(@Param("serverIp")String serverIp);
+            value = "select exists (select server_ip from encryption_model  where server_ip=:serverIp)")
+    boolean existsServerIp(@Param("serverIp")String serverIp);
 }
