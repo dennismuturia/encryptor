@@ -18,6 +18,12 @@
                 <div class="form-group">
                     <input type="number" class="form-control" name="numberOfMonths" placeholder="Number of months"/>
                 </div>
+                <div class="form-group">
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="customSwitch1" name="switchActive" checked=""/>
+                        <label class="custom-control-label" for="customSwitch1">Automatic Generation</label>
+                    </div>
+                </div>
                 <p><input type="submit" class="btn btn-primary" value="Submit"/>
             </form>
         </div>
@@ -26,9 +32,12 @@
             <table class="table table-hover">
                 <thead>
                 <tr>
-                    <th>Server ip</th>
-                    <th>Generation date</th>
+                    <th>Server Name</th>
+                    <th>Generation Date</th>
                     <th>Expiry Date</th>
+                    <th>Activity</th>
+                    <th>Active</th>
+                    <th>x</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -36,6 +45,9 @@
                     <td th:text = "${availableLicense.serverIp}">1234</td>
                     <td th:text = "${availableLicense.licenseGenerationDate}">2020-05-03</td>
                     <td th:text = "${availableLicense.licenseExpiryDate}">2020-05-03</td>
+                    <td th:text = "${availableLicense.activity}">Manual Generation</td>
+                    <td th:text = "${availableLicense.active}">Expired</td>
+                    <td><button type="button" class="btn btn-primary btn-sm" ><a th:href="@{/specific/{id}(id=${availableLicense.licenceId})}" style="color: white"/>Update License</button></td>
                 </tr>
                 </tbody>
             </table>

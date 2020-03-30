@@ -18,9 +18,8 @@ public class GetIpandMac {
             for (int i = 0; i < macArray.length; i++) {
                 str.append(String.format("%02X%s", macArray[i], (i < macArray.length - 1) ? "-" : ""));
             }
-            String macAddress=str.toString();
 
-            return macAddress; //return MAc Address
+            return str.toString(); //return MAc Address
         }
         catch(Exception E){
             E.printStackTrace();  //print Exception StackTrace
